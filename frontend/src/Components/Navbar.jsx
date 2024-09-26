@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../style/navbar.css';  // Import the CSS
+import '../style/navbar.css';  
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);  // Toggle the menu open and close
+    setIsOpen(!isOpen);  
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../style/mars.css'; // Correct CSS import
+import '../style/mars.css'; 
 
 export const Mars = () => {
   const [data, setData] = useState([]);

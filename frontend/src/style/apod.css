@@ -1,0 +1,88 @@
+/* APOD.css */
+
+/* General container layout */
+.apod-container {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.apod-header h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffeb3b; /* Yellow Mars-like color */
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+.error-message {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.apod-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Image styling */
+.apod-image {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Information block styling */
+.apod-info {
+  text-align: left;
+  padding: 0 20px;
+}
+
+.copyright {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.explanation {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .apod-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .explanation {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .apod-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .explanation {
+    font-size: 1rem;
+  }
+
+  .apod-info {
+    padding: 0 10px;
+  }
+}

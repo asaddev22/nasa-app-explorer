@@ -14,20 +14,20 @@ body, html {
   min-height: 100vh;
   padding: 20px;
   text-align: center;
-  overflow-y: auto; /* Enable scrolling if content overflows */
+  overflow-y: auto; 
 }
 
 .mars-header h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #ffeb3b; /* Highlighted heading */
+  color: #ffeb3b;
   text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
 }
 .mars-gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px; /* Space between cards */
+  gap: 40px;
   padding: 20px;
 }
 
@@ -42,14 +42,14 @@ body, html {
 }
 
 .mars-card:hover {
-  transform: scale(1.05); /* Slight scale effect on hover */
+  transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .mars-image {
   width: 100%;
   height: auto;
-  border-bottom: 2px solid #ffeb3b; /* Yellow border under image */
+  border-bottom: 2px solid #ffeb3b; 
 }
 
 .mars-info {
@@ -66,34 +66,30 @@ body, html {
 }
 
 .mars-info strong {
-  color: #ffeb3b; /* Highlight important labels */
+  color: #ffeb3b; 
 }
 
 .mars-info p:last-of-type {
   margin-top: 10px;
-  font-style: italic; /* Italicize the Earth date for a subtle effect */
+  font-style: italic;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .mars-card {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
   }
 }
 
-/* Error Message */
 .error-message {
   color: red;
   font-size: 1.2rem;
 }
 
-/* Loading state */
 .loading {
   font-size: 1.5rem;
   color: #ffeb3b;
 }
 
-/* Gallery Grid */
 .mars-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -101,7 +97,6 @@ body, html {
   margin-top: 30px;
 }
 
-/* Card Styling */
 .mars-card {
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid #ffeb3b;
@@ -127,7 +122,6 @@ body, html {
   box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.3);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .mars-header h1 {
     font-size: 2rem;

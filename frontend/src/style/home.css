@@ -50,10 +50,9 @@
   transform: scale(1.1);
   background-color: black;
   color: white;
-  cursor: pointer; /* Add pointer to indicate it's clickable */
+  cursor: pointer; 
 }
 
-/* Twinkling stars background */
 .stars, .twinkling {
   position: absolute;
   top: 0;
@@ -65,7 +64,7 @@
 
 .stars {
   background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
-  background-size: cover; /* Ensure background covers the whole page */
+  background-size: cover; 
   z-index: 1;
   animation: move-stars 200s linear infinite;
 }
@@ -77,7 +76,6 @@
 }
 
 
-/* Animations for the stars and twinkling */
 @keyframes move-stars {
   from { background-position: 0 0; }
   to { background-position: -10000px 5000px; }
@@ -99,7 +97,7 @@
   }
 
   .home-buttons {
-    flex-direction: column; /* Stack buttons vertically on small screens */
+    flex-direction: column; 
   }
 
   .home-btn {

@@ -10,7 +10,7 @@ export const Mars = () => {
     const fetchMarsPhotos = async () => {
       setLoading(true);  
       try {
-        const response = await axios.get('https://nasa-app-explorer-1.onrender.com/apod');
+        const response = await axios.get('/mars');
         setData(response.data.photos);
       } catch (error) {
         console.error('Error fetching Mars photos:', error);

@@ -14,7 +14,7 @@ export const NasaImg = () => {
       setLoading(true);
       setError(''); 
       try {
-        const response = await axios.get('https://nasa-app-explorer-1.onrender.com/apod', {  
+        const response = await axios.get('/search', {  
           params: {
             q: value,        
             media_type: 'image' 

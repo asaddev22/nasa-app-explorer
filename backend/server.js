@@ -5,6 +5,9 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.get('/', (req, res) => {
+  res.send('Welcome to NASA App Explorer Backend');
+});
 // Route to get Mars rover photos
 app.get('/mars', getMarsPhotos);
 

@@ -4,6 +4,11 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'https://nasa-web-explorer.onrender.com',  
+}));
 
 app.get('/', (req, res) => {
   res.send('Welcome to NASA App Explorer Backend');

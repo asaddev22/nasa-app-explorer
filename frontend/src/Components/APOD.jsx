@@ -8,7 +8,7 @@ export const APOD = () => {
   useEffect(() => {
     const fetchAPOD = async () => {
       try {
-        const response = await axios.get('/apod');
+        const response = await axios.get('/https://nasa-app-explorer-1.onrender.com/apod');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching APOD:', error);

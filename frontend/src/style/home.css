@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: blue;
+  color: white;
   background-color: black;
   overflow: hidden;
 }
@@ -28,9 +28,9 @@
 }
 
 .home-buttons {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 30px; */
 }
 
 .home-btn {

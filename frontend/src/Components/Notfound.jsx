@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import '../style/notfound.css';  
 
-const Notfound = () => {
+export const Notfound = () => {
   const history = useHistory();
 
   const handleGoHome = () => {
@@ -23,4 +23,3 @@ const Notfound = () => {
   );
 };
 
-export default Notfound;

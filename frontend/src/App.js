@@ -5,8 +5,7 @@ import {Navbar} from './Components/Navbar';
 import { Mars } from './Components/Mars';
 import { APOD } from './Components/APOD';
 import { NasaImg } from './Components/NasaImg';
-import {Notfound} from './Components/Notfound'; 
-
+import {Notfound} from './Components/Notfound';
 function App() {
   return (
     <Router>

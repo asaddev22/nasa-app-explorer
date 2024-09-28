@@ -1,6 +1,7 @@
 const express = require('express');
 const { getMarsPhotos, getAPOD, searchImages } = require('./controllers/nasaController'); 
 require('dotenv').config(); 
+const path = require('path'); // Add this line
 
 const app = express();
 const PORT = process.env.PORT || 5000;

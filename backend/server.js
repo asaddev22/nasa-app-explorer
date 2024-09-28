@@ -8,8 +8,9 @@ const PORT = process.env.PORT || 5000;
 const cors = require('cors');
 
 app.use(cors({
-  origin: 'https://nasa-web-explorer.onrender.com',  
+  origin: ['https://nasa-web-explorer.onrender.com', 'http://localhost:3000']  // Array of allowed origins
 }));
+
 
 
 

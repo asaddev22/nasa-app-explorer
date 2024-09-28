@@ -10,9 +10,7 @@ app.use(cors({
   origin: 'https://nasa-web-explorer.onrender.com',  
 }));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
-});
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to NASA App Explorer Backend');

@@ -6,7 +6,6 @@ import { Mars } from './Components/Mars';
 import { APOD } from './Components/APOD';
 import { NasaImg } from './Components/NasaImg';
 
-
 function App() {
   return (
     <Router>

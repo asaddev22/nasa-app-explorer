@@ -25,6 +25,7 @@
   margin-bottom: 30px;
   color: white;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  
 }
 
 .home-buttons {
@@ -74,8 +75,16 @@
   background-size: cover;
   animation: move-twinkling 100s linear infinite;
 }
-
-
+.footer-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 20px 0;
+  background-color: #111; 
+}
 @keyframes move-stars {
   from { background-position: 0 0; }
   to { background-position: -10000px 5000px; }

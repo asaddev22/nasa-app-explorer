@@ -19,6 +19,8 @@ export const Home = () => {
       {/* Twinkling stars layer */}
       <div className="stars"></div>
       <div className="twinkling"></div>
+      <p className='footer-text'>Developed By Asad Siddiqui</p>
+
     </div>
   );
 };

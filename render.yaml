@@ -1,13 +1,13 @@
 services:
   # Backend service (Node.js)
   - type: web
-    name: nasa-backend
+    name: backend
     env: node
     buildCommand: "cd backend && npm install"
     startCommand: "cd backend && npm start"
     envVars:
-      - key: NODE_ENV
-        value: production
+      - key: NASA_API_KEY
+        value: sn1ktSgGaRPYYg80c69RFAceBTn6Apj0nqH1MS6w
       - key: PORT
         value: 5000
     autoDeploy: true # Automatically deploy new changes
@@ -15,7 +15,7 @@ services:
 
   # Frontend service (React)
   - type: web
-    name: nasa-frontend
+    name: frontend
     env: static
     buildCommand: "cd frontend && npm install && npm run build"
     staticPublishPath: frontend/build
@@ -23,7 +23,5 @@ services:
       - type: rewrite
         source: /.*
         destination: /index.html
-    envVars:
-      - key: REACT_APP_API_URL
-        value: "https://your-backend-url.onrender.com"
+  
     plan: free

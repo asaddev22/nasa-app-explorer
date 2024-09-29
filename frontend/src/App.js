@@ -12,9 +12,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/nasa-img" element={<NasaImg />} />
         <Route path="/mars" element={<Mars />} />
         <Route path="/apod" element={<APOD />} />
-        <Route path="/nasa-img" element={<NasaImg />} />
+       
       </Routes>
     </Router>
   );

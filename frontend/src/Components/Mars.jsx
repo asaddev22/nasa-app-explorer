@@ -1,29 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../style/mars.css'; 
+import '../style/mars.css';
 
 export const Mars = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1); 
-  const [photosPerPage] = useState(12); 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [photosPerPage] = useState(12);
 
   useEffect(() => {
     const fetchMarsPhotos = async () => {
       setLoading(true);
       setError(null);
-      try {
-        const response = await axios.get('https://nasa-app-explorer-1.onrender.com/mars');
-        const uniquePhotos = response.data.photos.filter(
-          (photo, index, self) => index === self.findIndex((p) => p.img_src === photo.img_src)
-        );
-        setData(uniquePhotos);
-      } catch (error) {
-        console.error('Error fetching Mars photos:', error);
-        setError('Failed to load Mars Rover photos.');
-      } finally {
+
+      // Check if the data is available in localStorage
+      const cachedData = localStorage.getItem('marsPhotos');
+
+      if (cachedData) {
+        // If data is cached, parse it and set it to state
+        setData(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        // If no cached data, fetch from API
+        try {
+          const response = await axios.get('https://nasa-app-explorer-1.onrender.com/mars');
+          const uniquePhotos = response.data.photos.filter(
+            (photo, index, self) => index === self.findIndex((p) => p.img_src === photo.img_src)
+          );
+          setData(uniquePhotos);
+          // Cache the data in localStorage
+          localStorage.setItem('marsPhotos', JSON.stringify(uniquePhotos));
+        } catch (error) {
+          console.error('Error fetching Mars photos:', error);
+          setError('Failed to load Mars Rover photos.');
+        } finally {
+          setLoading(false);
+        }
       }
     };
 
@@ -51,10 +64,10 @@ export const Mars = () => {
   return (
     <div className="mars-container">
       <h1>Mars Rover Photos</h1>
-      {loading && <p style={{ color: "white" }}>Loading...</p>}
+      {loading && <p style={{ color: 'white' }}>Loading...</p>}
       {error && <p className="error-message">{error}</p>}
       {!loading && !error && currentPhotos.length === 0 && (
-        <p style={{ color: "white" }}>No photos available.</p>
+        <p style={{ color: 'white' }}>No photos available.</p>
       )}
 
       <div className="mars-gallery">

@@ -31,7 +31,7 @@ export const Mars = () => {
       } else {
         // If no cached data, fetch from the API
         try {
-          const response = await axios.get('https://nasa-app-explorer-1.onrender.com/mars');
+          const response = await axios.get('https://nasa-app-backend-dnmd.onrender.com/mars');
           
           // Filter out duplicate photos by comparing img_src
           const uniquePhotos = response.data.photos.filter(

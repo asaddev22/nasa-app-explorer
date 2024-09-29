@@ -25,7 +25,7 @@ export const NasaImg = () => {
       setLoading(true);    // Set loading to true when starting the fetch
       setError('');        
       try {
-        const response = await axios.get('https://nasa-app-explorer-1.onrender.com/search', {  
+        const response = await axios.get('https://nasa-app-backend-dnmd.onrender.com/search', {  
           params: {
             q: value,        // Search term from the input
             media_type: 'image' // Restrict results to images

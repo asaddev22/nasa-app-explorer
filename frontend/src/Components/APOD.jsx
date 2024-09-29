@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CSS from '../style/apod.css'; // Importing the custom CSS for styling
+import CSS from '../style/apod.css'; 
 
 export const APOD = () => {
   // State to store the fetched APOD (Astronomy Picture of the Day) data
@@ -11,7 +11,7 @@ export const APOD = () => {
     const fetchAPOD = async () => {
       try {
         // Fetch the APOD data from the backend (or NASA API via backend)
-        const response = await axios.get('https://nasa-app-explorer-1.onrender.com/apod');
+        const response = await axios.get('https://nasa-app-backend-dnmd.onrender.com/apod');
         setData(response.data); // Set the fetched data in the state
       } catch (error) {
         // Log any errors encountered during the fetch operation

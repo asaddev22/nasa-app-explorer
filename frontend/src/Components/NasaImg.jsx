@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import CSS from '../style/nasaimg.css'
-
+import '../style/nasaimg.css';
 
 export const NasaImg = () => {
     const [value, setValue] = useState(''); 
     const [data, setData] = useState([]);   
-    const [loading, setLoading] = useState(false); 
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [currentPage, setCurrentPage] = useState(1); 
+    const [itemsPerPage] = useState(6); 
   
     const fetchAstronomyData = async (e) => {
       e.preventDefault();
@@ -28,6 +29,7 @@ export const NasaImg = () => {
           setData([]);
         } else {
           setData(items);
+          setCurrentPage(1); 
         }
       } catch (error) {
         setError('Error fetching data. Please try again.');
@@ -35,7 +37,23 @@ export const NasaImg = () => {
       }
       setLoading(false);
     };
-  
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+    const nextPage = () => {
+      if (currentPage < Math.ceil(data.length / itemsPerPage)) {
+        setCurrentPage(prevPage => prevPage + 1);
+      }
+    };
+
+    const prevPage = () => {
+      if (currentPage > 1) {
+        setCurrentPage(prevPage => prevPage - 1);
+      }
+    };
+
     return (
       <div className="nasa-img-container">
         <form onSubmit={fetchAstronomyData} className="search-form">
@@ -53,8 +71,8 @@ export const NasaImg = () => {
         {error && <p className="error-message">{error}</p>}
   
         <div className="nasa-gallery">
-          {data.length > 0 && (
-            data.map((item, index) => (
+          {currentItems.length > 0 && (
+            currentItems.map((item, index) => (
               <div key={index} className="nasa-card">
                 <h3>{item.data[0].title}</h3>
                 <img src={item.links[0].href} alt={item.data[0].title} className="nasa-image" />
@@ -63,6 +81,18 @@ export const NasaImg = () => {
             ))
           )}
         </div>
+  
+        {!loading && !error && data.length > 0 && (
+          <div className="pagination">
+            <button className="pagination-button" onClick={prevPage} disabled={currentPage === 1}>
+              Previous
+            </button>
+            <span> Page {currentPage} of {Math.ceil(data.length / itemsPerPage)} </span>
+            <button className="pagination-button" onClick={nextPage} disabled={currentPage === Math.ceil(data.length / itemsPerPage)}>
+              Next
+            </button>
+          </div>
+        )}
       </div>
     );
-  };
+};

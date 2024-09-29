@@ -4,57 +4,73 @@ import '../style/mars.css';
 
 export const Mars = () => {
   const [data, setData] = useState([]);
+  
   const [loading, setLoading] = useState(false);
+  
+  // State to handle errors during API fetch
   const [error, setError] = useState(null);
+  
+  // State to manage pagination (current page)
   const [currentPage, setCurrentPage] = useState(1);
+  
+  // Number of photos per page for pagination
   const [photosPerPage] = useState(12);
 
+  // useEffect hook to fetch Mars Rover photos when the component mounts
   useEffect(() => {
     const fetchMarsPhotos = async () => {
-      setLoading(true);
-      setError(null);
+      setLoading(true);  // Set loading state to true
+      setError(null);    // Reset any previous errors
 
-      // Check if the data is available in localStorage
+      // Check if the data is already cached in localStorage
       const cachedData = localStorage.getItem('marsPhotos');
 
       if (cachedData) {
-        // If data is cached, parse it and set it to state
         setData(JSON.parse(cachedData));
         setLoading(false);
       } else {
-        // If no cached data, fetch from API
+        // If no cached data, fetch from the API
         try {
           const response = await axios.get('https://nasa-app-explorer-1.onrender.com/mars');
+          
+          // Filter out duplicate photos by comparing img_src
           const uniquePhotos = response.data.photos.filter(
             (photo, index, self) => index === self.findIndex((p) => p.img_src === photo.img_src)
           );
+          
+          // Set the unique photos to the state
           setData(uniquePhotos);
-          // Cache the data in localStorage
+          
+          // Cache the photos in localStorage for future use
           localStorage.setItem('marsPhotos', JSON.stringify(uniquePhotos));
         } catch (error) {
+          // Handle any errors during the API call
           console.error('Error fetching Mars photos:', error);
           setError('Failed to load Mars Rover photos.');
         } finally {
+          // Stop the loading spinner once fetching is complete
           setLoading(false);
         }
       }
     };
 
     fetchMarsPhotos();
-  }, []);
+  }, []); 
 
-  // Get the current photos for the page
+  // Calculate the index range for the current page photos
   const indexOfLastPhoto = currentPage * photosPerPage;
   const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
+  
+  // Get the photos for the current page
   const currentPhotos = data.slice(indexOfFirstPhoto, indexOfLastPhoto);
 
-  // Handle page change
   const nextPage = () => {
     if (currentPage < Math.ceil(data.length / photosPerPage)) {
       setCurrentPage(prevPage => prevPage + 1);
     }
   };
 
+  // Handle moving to the previous page
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(prevPage => prevPage - 1);
@@ -64,12 +80,19 @@ export const Mars = () => {
   return (
     <div className="mars-container">
       <h1>Mars Rover Photos</h1>
+
+      {/* Show loading message while data is being fetched */}
       {loading && <p style={{ color: 'white' }}>Loading...</p>}
+      
+      {/* Display error message if there is an error */}
       {error && <p className="error-message">{error}</p>}
+      
+      {/* Display message if no photos are available */}
       {!loading && !error && currentPhotos.length === 0 && (
         <p style={{ color: 'white' }}>No photos available.</p>
       )}
 
+      {/* Mars photos gallery */}
       <div className="mars-gallery">
         {currentPhotos.map((photo) => (
           <div key={photo.id} className="mars-card">
@@ -85,6 +108,7 @@ export const Mars = () => {
         ))}
       </div>
 
+      {/* Pagination controls */}
       {!loading && !error && data.length > 0 && (
         <div className="pagination">
           <button className="pagination-button" onClick={prevPage} disabled={currentPage === 1}>

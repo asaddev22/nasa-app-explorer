@@ -7,13 +7,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require('cors');
 
+//connect backend to frontend
 app.use(cors({
   origin: ['https://nasa-web-explorer.onrender.com', 'http://localhost:3000']  // Array of allowed origins
 }));
-
-
-
-
 
 
 // Route to get Mars rover photos
@@ -24,9 +21,6 @@ app.get('/apod', getAPOD);
 
 // Route to search NASA Image and Video Library
 app.get('/search', searchImages);
-
-//for redirects
-
 
 
 app.listen(PORT, () => {

@@ -25,7 +25,7 @@ export const APOD = () => {
           <h2>{data.title}</h2>
           <img src={data.url} alt={data.title} className="apod-image" />
           <p>{data.explanation}</p>
-          <p>@{data.copyright}</p>
+          <p>©{data.copyright}</p>
         </div>
       ) : (
         <p>Loading...</p>

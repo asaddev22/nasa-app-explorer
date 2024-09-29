@@ -16,9 +16,10 @@ export const Navbar = () => {
       </div>
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
         <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
-        <li><Link to="/mars" onClick={toggleMenu}>Explore Mars</Link></li>
-        <li><Link to="/apod" onClick={toggleMenu}>APOD</Link></li>
         <li><Link to="/nasa-img" onClick={toggleMenu}>NASA Image Gallery</Link></li>
+
+        <li><Link to="/apod" onClick={toggleMenu}>APOD</Link></li>
+        <li><Link to="/mars" onClick={toggleMenu}>Explore Mars</Link></li>
       </div>
       <div className="nav-hamburger" onClick={toggleMenu}>
         <div className="hamburger-line"></div>

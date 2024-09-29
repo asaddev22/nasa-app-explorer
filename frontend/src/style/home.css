@@ -16,7 +16,7 @@
 
 .home-logo {
   font-size: 4rem;
-  color: white;
+  color:  #ffeb3b;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
 }
 
@@ -50,7 +50,7 @@
 .home-btn:hover {
   transform: scale(1.1);
   background-color: black;
-  color: white;
+  color:  #ffeb3b;
   cursor: pointer; 
 }
 

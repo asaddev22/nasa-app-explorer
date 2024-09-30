@@ -11,7 +11,7 @@ export const APOD = () => {
     const fetchAPOD = async () => {
       try {
         // Fetch the APOD data from the backend (or NASA API via backend)
-        const response = await axios.get('https://nasa-app-backend-dnmd.onrender.com/apod');
+        const response = await axios.get('https://nasa-app-explorer-backend1.vercel.app/apod');
         setData(response.data); // Set the fetched data in the state
       } catch (error) {
         // Log any errors encountered during the fetch operation

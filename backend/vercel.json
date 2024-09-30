@@ -9,7 +9,9 @@
     "routes": [
       { "src": "/mars", "dest": "/server.js" },
       { "src": "/apod", "dest": "/server.js" },
-      { "src": "/search", "dest": "/server.js" }
+      { "src": "/search", "dest": "/server.js" },
+      {"src": "/(.*)",
+          "dest": "/"}
     ]
   }
   

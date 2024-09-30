@@ -1,7 +1,7 @@
 const { getAPOD } = require('../controllers/nasaController');
 const cors = require('cors');
 
-const allowedOrigins = ['https://nasa-web-explorer.onrender.com', 'http://localhost:3000'];
+const allowedOrigins = ['https://nasa-app-explorer-8h7q.vercel.app', 'http://localhost:3000'];
 
 const handler = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*');

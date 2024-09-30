@@ -9,7 +9,7 @@ const cors = require('cors');
 
 //connect backend to frontend
 app.use(cors({
-  origin: ['https://nasa-app-explorer-8h7q.vercel.app', 'http://localhost:3000']  // Array of allowed origins
+  origin: ['https://nasa-web-explorer.onrender.com', 'http://localhost:3000']  // Array of allowed origins
 }));
 
 

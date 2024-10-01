@@ -31,7 +31,17 @@ export const APOD = () => {
       {data ? (
         <div className="apod-content">
           <h2>{data.title}</h2> 
-          <img src={data.url} alt={data.title} className="apod-image" /> 
+          {data.media_type === "image" ? (
+      <img src={data.url} alt={data.title} className="apod-image" />
+    ) : data.media_type === "video" ? (
+      <iframe
+        src={data.url}
+        title={data.title}
+        className="apod-video"
+        allowFullScreen
+      ></iframe>
+    ) : null}
+          
           <p>{data.explanation}</p> 
           <p>©{data.copyright}</p> {/* Display the copyright information if available */}
         </div>

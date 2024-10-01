@@ -30,7 +30,7 @@ export const APOD = () => {
       {/* Display the content if data is available, otherwise show loading message */}
       {data ? (
         <div className="apod-content">
-          <h2>{data.title}</h2> 
+          <h2 style={{textAlign: "center"}}>{data.title}</h2> 
           <p className='apod-date'>{data.date}</p> 
           {data.media_type === "image" ? (
       <img src={data.url} alt={data.title} className="apod-image" />

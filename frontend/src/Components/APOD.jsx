@@ -31,6 +31,7 @@ export const APOD = () => {
       {data ? (
         <div className="apod-content">
           <h2>{data.title}</h2> 
+          <p className='apod-date'>{data.date}</p> 
           {data.media_type === "image" ? (
       <img src={data.url} alt={data.title} className="apod-image" />
     ) : data.media_type === "video" ? (
@@ -43,7 +44,7 @@ export const APOD = () => {
     ) : null}
           
           <p>{data.explanation}</p> 
-          <p>©{data.copyright}</p> {/* Display the copyright information if available */}
+          <p>{data.copyright>0 ? <p>©{data.copyright}</p> : <p>© Anonymous</p> }</p> {/* Display the copyright information if available */}
         </div>
       ) : (
         <p>Loading...</p> // Show a loading message while data is being fetched

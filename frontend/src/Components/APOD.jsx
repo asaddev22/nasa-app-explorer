@@ -44,7 +44,9 @@ export const APOD = () => {
     ) : null}
           
           <p>{data.explanation}</p> 
-          <p>{data.copyright>0 ? <p>©{data.copyright}</p> : <p>© Anonymous</p> }</p> {/* Display the copyright information if available */}
+          <p>
+  {data.copyright  ? `©${data.copyright}` : `© Anonymous`}
+</p>
         </div>
       ) : (
         <p>Loading...</p> // Show a loading message while data is being fetched

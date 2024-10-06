@@ -108,10 +108,11 @@ export const NasaImg = () => {
           
           <button type="submit" className="search-button">Search</button>
         </form>
-  
+  {/* {loading state} */}
         {loading && <p className="loading">Loading...</p>}
         {error && <p className="error-message">{error}</p>}
-  
+
+  {/* {display data from nasa api} */}
         <div className="nasa-gallery">
           {currentItems.length > 0 && (
             currentItems.map((item, index) => (
@@ -123,7 +124,7 @@ export const NasaImg = () => {
             ))
           )}
         </div>
-  
+  {/* Pagination for the page */}
         {!loading && !error && data.length > 0 && (
           <div className="pagination">
             <button className="pagination-button" onClick={prevPage} disabled={currentPage === 1}>

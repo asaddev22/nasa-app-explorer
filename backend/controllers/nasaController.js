@@ -1,6 +1,7 @@
 const axios = require('axios');
-require('dotenv').config(); 
-
+require('dotenv').config();
+const { handleApiError } = require('../handleApiError');
+ 
 const NASA_API_KEY = process.env.NASA_API_KEY;
 
 // Controller to get Mars rover photos
@@ -11,8 +12,8 @@ const getMarsPhotos = async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching Mars rover photos:', error.message);
-    res.status(500).json({ error: 'Failed to fetch Mars rover photos' });
+  
+    handleApiError(error, res, 'Mars rover photos');
   }
 };
 
@@ -24,14 +25,13 @@ const getAPOD = async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching APOD:', error.message);
-    res.status(500).json({ error: 'Failed to fetch APOD' });
+    handleApiError(error, res, 'Astronomy Picture of the Day (APOD)');
   }
 };
 
 // Controller to search NASA Image and Video Library
 const searchImages = async (req, res) => {
-  const { q, media_type } = req.query; 
+  const { q, media_type } = req.query;
   try {
     const response = await axios.get(`https://images-api.nasa.gov/search`, {
       params: {
@@ -41,10 +41,10 @@ const searchImages = async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching data from NASA Image and Video Library:', error.message);
-    res.status(500).json({ error: 'Failed to fetch data from NASA Image and Video Library' });
+    handleApiError(error, res, 'NASA Image and Video Library');
   }
 };
+
 
 module.exports = {
   getMarsPhotos,

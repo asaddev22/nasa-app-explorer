@@ -15,7 +15,7 @@ function App() {
         <Route path="/nasa-img" element={<NasaImg />} />
         <Route path="/mars" element={<Mars />} />
         <Route path="/apod" element={<APOD />} />
-       
+
       </Routes>
     </Router>
   );

@@ -10,7 +10,7 @@ export const spaceKeywords = [
     "Jupiter", "Jet Propulsion", "Juno", 
     "Kepler", "Kuiper Belt", "Karman Line", 
     "Lunar Module", "Lagrange Point", "Light Year", "Lunar Eclipse", "Luna",
-    "Mars", "Milky Way", "Meteor", "Meteor Shower", "Mission Control", 
+    "Mars", "Milky Way", "Meteor", "Meteor Shower", "Mission Control", "moon",
     "Neptune", "Nebula", "NASA", "Nova", "Near-Earth Object", 
     "Orion", "Orbit", "Outer Space", "Observatory",
     "Planet", "Pluto", "Pulsar", "Photon", "Probe", "Protostar",

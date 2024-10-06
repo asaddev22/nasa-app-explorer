@@ -42,7 +42,7 @@ export const NasaImg = () => {
       setSuggestions([]);  // Clear suggestions when the form is submitted
       setError('');        
       try {
-        const response = await axios.get('https://nasa-app-backend-dnmd.onrender.com/search', {  
+        const response = await axios.get('/search', {  
           params: {
             q: value,        // Search term from the input
             media_type: 'image' // Restrict results to images

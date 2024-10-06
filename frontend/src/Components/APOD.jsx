@@ -5,7 +5,7 @@ import CSS from '../style/apod.css';
 export const APOD = () => {
   // State to store the fetched APOD (Astronomy Picture of the Day) data
   const [data, setData] = useState(null);
-
+  const [error, setError] = useState(null);
   // useEffect hook to fetch the APOD data when the component mounts
   useEffect(() => {
     const fetchAPOD = async () => {
@@ -16,6 +16,8 @@ export const APOD = () => {
       } catch (error) {
         // Log any errors encountered during the fetch operation
         console.error('Error fetching APOD:', error);
+        setError('Error fetching APOD:', error);
+
       }
     };
 
@@ -49,7 +51,8 @@ export const APOD = () => {
 </p>
         </div>
       ) : (
-        <p>Loading...</p> // Show a loading message while data is being fetched
+        <p>Loading...</p> 
+        // Show a loading message while data is being fetched
       )}
     </div>
   );

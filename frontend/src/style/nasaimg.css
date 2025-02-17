@@ -1,5 +1,7 @@
 /* NasaImg.css */
-
+p{
+  font-size: 7px
+}
 .nasa-img-container {
   background-color: #000;
   color: white;

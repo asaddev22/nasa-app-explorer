@@ -94,7 +94,7 @@
 }
 
 .nasa-card p {
-  font-size: 10px;
+  font-size: 7px;
   line-height: 1.5;
   color: #e0e0e0;
 }
@@ -196,7 +196,7 @@ margin-right: 300px;
   }
 
   .nasa-card p {
-    font-size: 1rem;
+    font-size: 0.5rem;
   }
   .suggestions-list{
    margin-right: 150px; 
